@@ -21,7 +21,8 @@ services:
       - red-docker2
 
   mysql-practica2:
-    image: mysql:8.0
+  # image: mysql:8.0  <-- Original (Daba error de conexión)
+    image: mysql/mysql-server:8.0
     container_name: mysql-practica2
     hostname: mysql-practica2
     restart: unless-stopped
@@ -49,7 +50,8 @@ services:
       - red-docker2
 
   generador-datos:
-    image: python:3.11-slim
+  # image: python:3.11-slim <-- Original (Daba error de conexión)
+    image: hadoop-con-sqoop
     container_name: generador-datos
     depends_on:
       mysql-practica2:
