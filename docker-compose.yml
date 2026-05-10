@@ -148,6 +148,13 @@ services:
     depends_on:
       - Nodo-principal2
 
+  node-exporter:
+    image: prom/node-exporter:latest
+    container_name: node-exporter
+    restart: unless-stopped
+    networks:
+      - red-docker2
+
   grafana:
     image: grafana/grafana:latest
     container_name: grafana-equipo2
