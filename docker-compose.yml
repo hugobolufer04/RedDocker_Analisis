@@ -58,8 +58,9 @@ services:
         condition: service_healthy
     volumes:
       - ./generando_datos.py:/app/generando_datos.py
+      - ./exportar_a_hive.py:/app/exportar_a_hive.py
     working_dir: /app
-    command: bash -c "pip install pymysql -q && python generando_datos.py"
+    command: bash -c "pip install pymysql -q && python generando_datos.py && tail -f /dev/null"
     networks:
       - red-docker2
     restart: "no"
